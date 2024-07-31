@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import urllib.request
-from src import constants
 
 
 class ExposeHtmlDocument:
@@ -24,9 +23,9 @@ class ExposeHtmlDocument:
 
         soup = BeautifulSoup(html, features="html.parser")
 
-        head = soup.find(constants.HEAD)
+        head = soup.find("head")
 
-        body = soup.find(constants.BODY)
+        body = soup.find("body")
 
 
     def count_css(self) -> int:
@@ -36,19 +35,19 @@ class ExposeHtmlDocument:
         count_css = 0
 
         if head:
-            links = head.find_all(constants.LINK)
+            links = head.find_all("link")
 
             if links:
                 for rel in links:
-                    if constants.STYLE_SHEET in rel.get(constants.REL):
+                    if "stylesheet" in rel.get("rel"):
                         count_css += 1
 
         if body:
-            links = body.find_all(constants.LINK)
+            links = body.find_all("link")
 
             if links:
                 for rel in links:
-                    if constants.STYLE_SHEET in rel.get(constants.REL):
+                    if "stylesheet" in rel.get("rel"):
                         count_css += 1
 
         return count_css
@@ -60,13 +59,13 @@ class ExposeHtmlDocument:
         count_js = 0
 
         if head:
-            scripts = head.find_all(constants.SCRIPT)
+            scripts = head.find_all("script")
 
             if scripts:
                 count_js += len(scripts)
 
         if body:
-            scripts = body.find_all(constants.SCRIPT)
+            scripts = body.find_all("script")
 
             if scripts:
                 count_js += len(scripts)
@@ -99,7 +98,7 @@ class ExposeHtmlDocument:
         count_meta = 0
 
         if head:
-            metas = head.find_all(constants.META)
+            metas = head.find_all("meta")
 
         count_meta += len(metas)
 
@@ -112,12 +111,12 @@ class ExposeHtmlDocument:
         lst_js = []
 
         if head:
-            js = head.find_all(constants.SCRIPT)
+            js = head.find_all("script")
             for x in js:
                 lst_js.append(x.string)
 
         if body:
-            js = body.find_all(constants.SCRIPT)
+            js = body.find_all("script")
             for x in js:
                 lst_js.append(x.string)
 
@@ -132,12 +131,12 @@ class ExposeHtmlDocument:
         lst_css = []
 
         if head:
-            css = head.find_all(constants.STYLE)
+            css = head.find_all("style")
             for x in css:
                 lst_css.append(x.string)
 
         if body:
-            js = body.find_all(constants.STYLE)
+            js = body.find_all("style")
             for x in js:
                 lst_css.append(x.string)
 
@@ -159,7 +158,7 @@ class ExposeHtmlDocument:
         attrs = list(filter(None, attrs))
 
         for x in attrs:
-            if constants.ONCLICK in x.keys():
+            if "onclick" in x.keys():
                 count_onclick += 1
 
         return count_onclick
@@ -171,7 +170,7 @@ class ExposeHtmlDocument:
         count_forms = 0
 
         if body:
-            elem = body.find_all(constants.FORM)
+            elem = body.find_all("form")
             count_forms = len(elem)
 
         return count_forms
@@ -183,11 +182,11 @@ class ExposeHtmlDocument:
         form_info = {}
 
         if body:
-            form_elem = body.find_all(constants.FORM)
+            form_elem = body.find_all("form")
 
             for x in form_elem:
-                action = x.attrs.get(constants.ACTION)
-                method = x.attrs.get(constants.METHOD)
+                action = x.attrs.get("action")
+                method = x.attrs.get("method")
 
                 form_info[action] = method
 
@@ -198,7 +197,7 @@ class ExposeHtmlDocument:
         Returns the page size in Kb
         """
         page_size = 0
-        size = int(response.headers[constants.CONTENT_LENGTH]) / 1024
+        size = int(response.headers["Content-Length"]) / 1024
         page_size = round(size)
 
         return page_size
@@ -218,8 +217,8 @@ class ExposeHtmlDocument:
 
         for x in attrs:
 
-            if constants.ONCLICK in x.keys():
-                onclick_values.append(x[constants.ONCLICK])
+            if "onclick" in x.keys():
+                onclick_values.append(x["onclick"])
 
         return onclick_values
 
@@ -231,7 +230,7 @@ class ExposeHtmlDocument:
         lst_js = []
 
         if body:
-            js = body.find_all(constants.SCRIPT)
+            js = body.find_all("script")
             for x in js:
                 lst_js.append(x.string)
 
