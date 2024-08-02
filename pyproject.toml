@@ -8,7 +8,7 @@ version = "0.0.1"
 authors = [
   { name="Joao Paulo de Castro Lima", email="joao@paulo.com" },
 ]
-description = "A small example package"
+description = "A package that helps you to scrap web pages. It shows you a lot of information about the page."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
