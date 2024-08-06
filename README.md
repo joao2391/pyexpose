@@ -1,4 +1,4 @@
-# PyExpose [![PyPI](https://img.shields.io/v/PyExpose)](URL) ![PyPI](https://img.shields.io/pypi/dt/PyExpose)
+# PyExpose ![PyPI](https://img.shields.io/pypi/dd/PyExposeHtml)
 
 PyExpose is a Python library for helping you to scrap web pages. It shows you a lot of information about the page.
 

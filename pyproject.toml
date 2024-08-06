@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "PyExpose"
+name = "PyExposeHtml"
 version = "0.0.1"
 authors = [
   { name="Joao Paulo de Castro Lima", email="joao@paulo.com" },
