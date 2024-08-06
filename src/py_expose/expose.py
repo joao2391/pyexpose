@@ -8,24 +8,32 @@ class ExposeHtmlDocument:
     def __init__(self, url):
 
         if not url:
-            raise ValueError("URL is required")
+            raise ValueError("URL or PATH is required")
 
         self.url = url
+        #self.path = path
         global html, head, body, response
 
-        response = urllib.request.urlopen(self.url)
+        if self.url != '':
 
-        if response.status != 200:
-            raise ConnectionError("HTTP Status Code is not 200")
+            response = urllib.request.urlopen(self.url)
 
+            if response.status != 200:
+                raise ConnectionError(f"HTTP Status Code is not 200 -> {self.url}")
 
-        html = response.read()
+            html = response.read()
 
+        # else:
+        #     file = open(path, 'r')
+        #     html = file
+        
         soup = BeautifulSoup(html, features="html.parser")
 
         head = soup.find("head")
 
         body = soup.find("body")
+
+        #file.close()
 
 
     def count_css(self) -> int:
