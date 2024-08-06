@@ -62,7 +62,7 @@ class ExposeHtmlDocumentTests(unittest.TestCase):
         mock_requests.return_value = mock_response
 
         obj = expose.ExposeHtmlDocument(self.url)
-        self.assertEqual(obj.count_meta_element(), 2)
+        self.assertEqual(obj.count_meta_elements(), 2)
 
     
     @patch("urllib.request.urlopen")

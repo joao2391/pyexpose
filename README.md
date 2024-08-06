@@ -19,62 +19,66 @@ pip install -U pyexpose
 
 After install the package:
 ```python
-TODO
+from py_expose import expose
 ```
 
 Create an instance of ExposeHtmlDocument. The constructor needs an URL. This URL will be scraped.
 
 ```python
-TODO
+expose_doc = new ExposeHtmlDocument('https://some-random-url')
 ```
  
 Return total of CSS files referenced in the html page
 ```python
-TODO
+total_css = expose_doc.count_css()
 ```
 Return total of JS files referenced in the html page
 ```python
-TODO
+total_js = expose_doc.count_js()
 ```
 Return total of Html Elements
 ```python
-TODO
+total_html_elements = expose_doc.count_total_elements()
 ```
 Return total of META elements
 ```python
-TODO
+total_meta = expose_doc.count_meta_elements()
 ```
 Return all the JS content
 ```python
-TODO
+total_js_content = expose_doc.get_js_content()
 ```
 Return all the CSS content
 ```python
-TODO
+total_css_content = expose_doc.get_css_content()
 ```
 Return the total of onclick events in all elements in the html
 ```python
-TODO
+total_onclick_events = expose_doc.count_onclick_events()
 ```
 Return the total of Forms in html page
 ```python
-TODO
+total_forms = expose_doc.count_forms_elements()
 ```
 Return the Action and HttpMethod from Form
 ```python
-TODO
+form_info = expose_doc.get_form_info()
 ```
 Return the size in Kb of the page
 ```python
-TODO
+page_size = expose_doc.get_page_size()
 ```
-Return the JSON with the amount of info found
+Return the onclick values
 ```python
-TODO
+onclick_values = expose_doc.get_onclick_values()
 ```
 Return True/False 
 ```python
-TODO
+has_ajax_call = expose_doc.has_ajax_call()
+```
+Return the JSON with the amount of info found
+```python
+report_json = expose_doc.generate_report()
 ```
 
 ## Contributing

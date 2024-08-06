@@ -98,7 +98,7 @@ class ExposeHtmlDocument:
 
         return count_html
 
-    def count_meta_element(self) -> int:
+    def count_meta_elements(self) -> int:
         """
         Return the total of META elements
         """
@@ -259,7 +259,7 @@ class ExposeHtmlDocument:
         report['total_css'] = self.count_css()
         report['total_js'] = self.count_js()
         report['total_elements'] = self.count_total_elements()
-        report['total_meta_elements'] = self.count_meta_element()
+        report['total_meta_elements'] = self.count_meta_elements()
         report['total_onclick_events'] = self.count_onclick_events()
         report['total_form_elements'] = self.count_forms_elements()
         report['has_ajax_call'] = self.has_ajax_call()
