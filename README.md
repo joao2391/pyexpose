@@ -1,6 +1,6 @@
-# PyExpose ![PyPI](https://img.shields.io/pypi/dd/PyExposeHtml)
+# PyExposeHtml ![PyPI](https://img.shields.io/pypi/dd/PyExposeHtml)
 
-PyExpose is a Python library for helping you to scrap web pages. It shows you a lot of information about the page.
+PyExposeHtml is a Python library for helping you to scrap web pages. It shows you a lot of information about the page.
 
 ## Notes
 Version 0.0.1:
@@ -12,14 +12,14 @@ Version 0.0.1:
 Use the package manager to install.
 
 ```bash
-pip install -U pyexpose
+pip install PyExposeHtml
 ```
 
 ## Usage
 
 After install the package:
 ```python
-from py_expose import expose
+from py_expose_html import expose
 ```
 
 Create an instance of ExposeHtmlDocument. The constructor needs an URL. This URL will be scraped.
